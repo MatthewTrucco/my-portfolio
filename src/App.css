@@ -1,4 +1,4 @@
-/* Reset some default styles */
+
 body, h1, h2, h3, p, ul, li, figure, figcaption, blockquote, dl, dd {
   margin: 0;
   padding: 0;
@@ -7,8 +7,8 @@ body, h1, h2, h3, p, ul, li, figure, figcaption, blockquote, dl, dd {
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
+  color: #f8f8f2;
+  background-color: #9dbcd4;
 }
 
 .container {
@@ -17,15 +17,16 @@ body {
   overflow: hidden;
 }
 
-/* Header Styles */
 .App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   padding: 20px 0;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .App-header h1 {
   margin: 0;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 /* Navigation Bar Styles */
@@ -41,8 +42,9 @@ nav a {
   margin: 0 15px;
 }
 
-nav a:hover {
-  color: #fff;
+nav a:hover, nav a:focus, nav a.active {
+  color: #ffffff;
+  border-bottom: 2px solid #61dafb;
 }
 
 /* Main Content Styles */
@@ -72,10 +74,36 @@ footer {
 /* Portfolio Item Styles */
 .portfolio-item {
   margin-bottom: 20px;
+  text-align: center;
 }
 
-.portfolio-item h3 {
-  margin-top: 0;
+.image-container {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+}
+
+.image-container img {
+  width: 350px; /* Adjust as needed */
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  color: #ffffff;
+  width: 100%;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+  text-align: center;
+  padding: 10px;
+}
+
+.image-container:hover .overlay {
+  transform: scale(1);
 }
 
 /* Form Styles */
@@ -94,6 +122,12 @@ form textarea {
   border: 1px solid #ddd;
 }
 
+form input:focus, form textarea:focus {
+  outline: none;
+  border-color: #61dafb;
+  box-shadow: 0 0 5px #61dafb;
+}
+
 form button {
   background-color: #282c34;
   color: white;
@@ -101,6 +135,7 @@ form button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 form button:hover {
@@ -127,7 +162,7 @@ form button:hover {
     width: 95%;
   }
 
-  .main-content, footer, .App-header {
+  .main-content, footer, .App-header, nav {
     text-align: center;
   }
 
@@ -137,5 +172,13 @@ form button:hover {
 
   nav a {
     margin: 10px 0;
+  }
+
+  .portfolio-item {
+    grid-template-columns: 1fr; 
+  }
+
+  .image-container img {
+    width: 100%; /* Full width on smaller screens */
   }
 }
